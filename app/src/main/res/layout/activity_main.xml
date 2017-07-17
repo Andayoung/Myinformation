@@ -1,0 +1,133 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2988f6"
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/img_log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="40dp"
+            android:src="@mipmap/logo_03" />
+
+        <Button
+            android:id="@+id/btn_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="#2988f6"
+            android:text="退出登录"
+            android:layout_margin="10dp"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:paddingLeft="40dp"
+            android:text="用户名"
+            android:textColor="#2988f6"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/user_name_uu"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@+id/user_name"
+            android:gravity="center"
+            android:text="***"
+            android:textColor="#2988f6"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/user_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignLeft="@+id/user_name"
+            android:layout_below="@+id/user_name"
+            android:gravity="center"
+            android:paddingLeft="40dp"
+            android:text="密    码"
+            android:textColor="#2988f6"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/user_pwd_uu"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/user_name_uu"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@+id/user_pwd"
+            android:gravity="center"
+            android:text="***"
+            android:textColor="#2988f6"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/user_bir"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignLeft="@+id/user_name"
+            android:layout_below="@+id/user_pwd"
+            android:gravity="center"
+            android:paddingLeft="40dp"
+            android:text="生    日"
+            android:textColor="#2988f6"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/user_bir_uu"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/user_pwd_uu"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@+id/user_bir"
+            android:gravity="center"
+            android:text="***"
+            android:textColor="#2988f6"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/user_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignLeft="@+id/user_name"
+            android:layout_below="@+id/user_bir"
+            android:gravity="center"
+            android:paddingLeft="40dp"
+            android:text="性    别"
+            android:textColor="#2988f6"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/user_sex_uu"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/user_bir_uu"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@+id/user_sex"
+            android:gravity="center"
+            android:text="***"
+            android:textColor="#2988f6"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
