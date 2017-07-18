@@ -58,13 +58,16 @@ public class LogOrRegActivity extends Activity {
     @BindView(R.id.denglu)
     Button denglu;
     SerialNumberHelper serialNumberHelper;
-
+    String flag=" ";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg_log);
         ButterKnife.bind(this);
-
+        Intent intent=getIntent();
+        if(intent!=null){
+            flag=intent.getStringExtra("where");
+        }
     }
 
 
@@ -129,14 +132,11 @@ public class LogOrRegActivity extends Activity {
                             serialNumberHelper = new SerialNumberHelper(getApplicationContext());
                         }
                         serialNumberHelper.save2File(jsonResult.getString("serialNumber")
-                        +" "+jsonResult.getString("licence")
-                        +" "+userName.getText().toString()
-                        +" "+userPwd.getText().toString()
-                        +" "+userBir.getText().toString()
+                        +" "+jsonResult.getString("licence") +" "+userName.getText().toString()
+                        +" "+userPwd.getText().toString() +" "+userBir.getText().toString()
                         +" "+userSex.getText().toString());//"serialNumber":"20160222uu000003"
-//                        serialNumberHelper.saveLiFile(jsonResult.getString("licence"));//"license":"304502202F757D592CDCAE575011DDB9D418E8EBBDBFBEF7A57732DCC36957D721701B0D022100B3BDEAB14DDC9C6880C0E6790EF01704DEC96EE05ABF7876A359A194A9AD6D6D"
                         finish();
-//                        overridePendingTransition(R.anim.login, R.anim.logout);
+
                     } else {
                         String faultMsg = new JSONObject(s).getString("msg");
                         Toast.makeText(LogOrRegActivity.this, faultMsg, Toast.LENGTH_SHORT).show();

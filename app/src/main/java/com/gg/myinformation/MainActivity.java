@@ -31,52 +31,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        if (!checkIsLogin()) {
+        if (serialNumberHelper == null) {
+            serialNumberHelper = new SerialNumberHelper(getApplicationContext());
+        }
+        String serialNumber=serialNumberHelper.read4File();
+        Log.e("MainActivity","onResume s="+serialNumber);
+        if (serialNumber==null|| serialNumber.equals("")) {
             Intent intent = new Intent(MainActivity.this, LogOrRegActivity.class);
             startActivity(intent);
+        } else {
+            String[] s = serialNumber.split(" ");
+            userNameUu.setText(s[2]);
+            userPwdUu.setText(s[3]);
+            userBirUu.setText("1998.08.08");
+            userSexUu.setText("女");
         }
     }
+
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (serialNumberHelper == null) {
-            serialNumberHelper = new SerialNumberHelper(getApplicationContext());
-        }
-        String serialNumber = serialNumberHelper.read4File();
-        Log.e("MainActivity", "serialNumber=" + serialNumber);
-        if (serialNumber == null || serialNumber.equals("")) {
-        } else {
-            String[] s = serialNumber.split(" ");
-            userNameUu.setText(s[2]);
-            userPwdUu.setText(s[3]);
-            userBirUu.setText("1998.08.08");
-            userSexUu.setText("女");
-        }
-    }
 
-    private boolean checkIsLogin() {
-        if (serialNumberHelper == null) {
-            serialNumberHelper = new SerialNumberHelper(getApplicationContext());
-        }
-        String serialNumber = serialNumberHelper.read4File();
-        Log.e("MainActivity", "serialNumber=" + serialNumber);
-        if (serialNumber == null || serialNumber.equals("")) {
-            return false;
-        } else {
-            String[] s = serialNumber.split(" ");
-            userNameUu.setText(s[2]);
-            userPwdUu.setText(s[3]);
-            userBirUu.setText("1998.08.08");
-            userSexUu.setText("女");
-            /*int i = 0;
-            for (String z : s) {
-                Log.e("MainActivity", "s[" + (i++) + "]=" + z);
-            }*/
-            return true;
-        }
 
     }
+
+
 
     @OnClick({R.id.btn_exit})
     void exit(Button btn) {
